@@ -1,0 +1,59 @@
+Menu2{
+	max-width: 900px;
+	margin: auto;
+	background: #002633;
+}
+.menu-horizontal {
+	list-style: none;
+
+	display: flex;
+	justify-content: space-around;
+}
+.menu-horizontal li{
+	padding: 15px 30px;
+	box-sizing: content-box;
+}
+
+.menu-horizontal li:hover{
+	background: #c81010;
+	cursor: pointer;
+}
+.tabla_Principal{
+	display: flex;
+
+}
+.operaciones button{
+	background: #002633;
+	color: white;
+	width: 100%;
+	padding: 0;
+	margin: 0;
+}
+.operaciones button:hover{
+	background: #c81010;
+	color: white;
+	cursor: pointer;
+}
+.tablaP{
+	padding: 0 10px;
+	width: 100%;
+}
+.tabla_Principal div ul{
+	list-style: none;
+}
+.tablaP{
+
+}
+.tablaP th, .tablaP td{
+	color: black;
+	border-collapse: collapse;
+}
+.Guardar{
+	padding: 5px 10px;
+	float: right;
+}
+.Botones{
+	padding: 10px 0;
+	display: flex;
+	justify-content: space-around;
+}
