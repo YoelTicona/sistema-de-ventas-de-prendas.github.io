@@ -1,0 +1,158 @@
+* {
+	box-sizing: border-box;
+	}
+    html,body {
+	  padding: 0;
+	  margin: 0;
+	}
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #053456;
+  }
+  .herramientas {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+    background-color: #ffff;
+  }
+  .logo {
+    width: 150px; /* Ajustar el tamaño del logo según sea necesario */
+  }
+  .titulo {
+    font-size: 24px;
+	color: white;
+  }
+  .botones-container {
+    display: flex;
+	align-items: stretch;
+  }
+  .boton {
+    margin-left: 10px;
+    padding: 16px 20.8px;
+    border: none;
+    background-color: #053456;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+	flex: 0 0 auto; /* Para que los botones no se estiren */
+    border-radius: 50%;
+  }
+  .otro-contenedor {
+    display: flex;
+	justify-content: space-between;
+    align-items: center;
+	
+	
+  }
+  
+  .boton:hover {
+    background-color: #DC2424; /* Cambia el color cuando se señala */
+  }
+  .botonBuscar{
+	margin-left: 10px;
+    padding: 8px 26px;
+    border: none;
+    background-color: #053456;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+	flex: 0 0 auto; /* Para que los botones no se estiren */
+	
+  }
+  
+   .botonFiltros{
+	margin-left: 10px;
+    padding: 8px 26px;
+    border: none;
+    background-color: #053456;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+	flex: 0 0 auto; /* Para que los botones no se estiren */
+	
+  }
+  .busqueda {
+	width: 300px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  footer {
+        color: #053456;
+        padding: 20px;
+        text-align: right;
+		
+    }
+    #changing-text {
+        cursor: pointer;
+    }
+    #changing-text:active {
+        color: red;
+    }
+    #changing-text:focus {
+        outline: none;
+    }
+	body {
+	  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	}
+
+	table {
+	  display: grid;
+	  border-collapse: collapse;
+   	  width: 100%;
+      overflow-x: auto; /* Para permitir el desplazamiento horizontal en pantallas pequeñas */
+   	  white-space: nowrap;
+
+	  grid-template-columns: 
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr)
+        minmax(10%, 1fr);
+	}
+
+	thead,
+	tbody,
+	tr {
+	  display: contents;
+	}
+
+	th,
+	td {
+	  padding: 15px;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	  white-space: nowrap;
+	}
+
+	th {
+	  position: sticky;
+	  top: 0;
+	  background: #6c7ae0;
+	  text-align: left;
+	  font-weight: normal;
+	  font-size: 1.1rem;
+	  color: white;
+	}
+
+	th:last-child {
+	  border: 0;
+	}
+
+	td {
+	  padding-top: 10px;
+	  padding-bottom: 10px;
+	  color: #808080;
+	}
+
+	tr:nth-child(even) td {
+	  background: #f8f6ff;
+	}
