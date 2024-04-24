@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sistema de Ventas</title>
+        <link rel="icon" href="">
+        <link rel="stylesheet" href="css/components.css">
+        <link rel="stylesheet" href="css/icons.css">
+        <link rel="stylesheet" href="css/responsee.css">
+        <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+        <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+        <link rel="stylesheet" href="css/stylesFinanzas.css">
+        <script src="js/script.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>        
+        <!--Icono-->
+        <link rel="icon" type="image/jpeg" href="img/Empresa_1.jpeg">
+        <!-- CUSTOM STYLE -->      
+        <link rel="stylesheet" href="css/template-style.css">
+        <link href="css/googleApiFont.css" rel="stylesheet">  
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.min.js"></script>   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
+     </head>
+  
+<body class="size-1520 primary-color-red background-dark">
+    <header class="grid">
+        <!-- Top Navigation -->
+        <nav class="s-12 grid background-none background-primary-hightlight">
+           <!-- logo -->
+           <a href="index.html" class="m-12 l-3 padding-2x logo" style="padding: 31px;">
+              <img src="img/logoK3.png" >
+           </a>
+           <div class="top-nav s-12 l-9"> 
+              <ul class="top-ul right chevron">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about-us.html">Sobre Nosotros</a></li>
+                <li><a href="#Botones">Servicios</a></li>
+                <li><a href="contact.html">Contactos</a></li>
+              </ul>
+           </div>
+        </nav>
+      </header>
+    <!--menu de opciones-->
+    <nav class="menu-opciones">
+        <ul>
+            <li><a href="#" onclick="abrirModal('VENTAS')">VENTAS</a></li>
+            <li><a href="#" onclick="abrirModal('INVENTARIO')">INVENTARIO</a></li>
+            <li><a href="#" onclick="abrirModal('BUSCAR')">ESTADO FINANCIERO</a></li>
+            <li><a href="index.html">ATRÁS</a></li>
+        </ul>
+    </nav>
+
+    
+        <main>
+            <h1>Bienvenidos a la Sección de Finanzas</h1>
+            <p>Información relevante sobre la gestión financiera de nuestra empresa.</p>
+        </main>
+
+
+    
+    
+    <div id="chart-container" style="width:50%;">
+        <canvas id="salesChart"></canvas>
+    </div>
+    
+    <!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar" onclick="cerrarModal()">&times;</span>
+        <div id="contenido-modal">
+            <h2>Selecciona el tipo de informe:</h2>
+            <button onclick="sacarInforme('Día')">Día</button>
+            <button onclick="sacarInforme('Semana')">Semana</button>
+            <button onclick="sacarInforme('Mes')">Mes</button>
+            <button onclick="sacarInforme('Año')">Año</button>
+            <div id="grafico-ventas" style="width: 400px; height: 400px;"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+
+<!-- Contenido del informe -->
+<div id="contenido-informe"></div>
+<br>
+<br>
+<br>
+<button><a href="control-inventario.html">Control de inventarios</a></button>
+<br>
+<br>
+    <footer class="grid">
+        
+        <!-- Footer - top -->
+        <!-- Image-->
+        <a href="index.html" class="m-12 l-3 padding-2x logo" style="padding: 80px;" width="50px">
+            <img src="img/logoK3.png" >
+         </a>
+        
+        
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+           <h2 class="text-strong text-uppercase">¿Quienes Somos?</h2>
+           <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy.</p>
+        </div>
+        
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+           <h2 class="text-strong text-uppercase">¿Dónde estamos?</h2>
+           <img class="full-img" src="img/map.svg" alt=""/>
+        </div>
+        
+        <div class="s-12 m-9 l-3 padding-2x margin-bottom background-dark">
+           <h2 class="text-strong text-uppercase">Contactos</h2>
+           <p><b class="text-primary margin-right-10">Jorge Chavez Cruz</b> 0800 4521 800 50</p>
+           <p><b class="text-primary margin-right-10">Personal:</b> <a class="text-primary-hover" href="mailto:contact@sampledomain.com">contact@sampledomain.com</a></p>
+           <p><b class="text-primary margin-right-10">Empresa:</b> <a class="text-primary-hover" href="mailto:office@sampledomain.com">office@sampledomain.com</a></p>
+        </div>
+        
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+          <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+          <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.</p>
+          <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+      </footer>   
+      <footer>
+        <p>Derechos reservados © 2024 Empresa de Ropa</p>
+
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx = document.getElementById('salesChart').getContext('2d');
+            var salesChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Camisetas', 'Pantalones', 'Sombreros', 'Zapatos'],
+                    datasets: [{
+                        label: 'Unidades vendidas',
+                        data: [50, 25, 15, 30],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+        </script>
+</body>
+</html>
+

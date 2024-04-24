@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Gerencia</title>
+      <link rel="icon" href="">
+      <link rel="stylesheet" href="css/components.css">
+      <link rel="stylesheet" href="css/icons.css">
+      <link rel="stylesheet" href="css/responsee.css">
+      <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+      <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+      <!--Icono-->
+      <link rel="icon" type="image/jpeg" href="img/Empresa_1.jpeg">
+      <!-- CUSTOM STYLE -->      
+      <link rel="stylesheet" href="css/template-style.css">
+      <link href="css/googleApiFont.css" rel="stylesheet">  
+      <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script> 
+<link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo de estilos CSS -->
+    <style>
+        /* Estilos adicionales para el marco y el buscador */
+        #panel-administracion {
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        #buscador {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 100px; /* Movemos el buscador 100px a la derecha */
+        }
+        .boton-seccion {
+            background-color: #4E5EE8;
+            color: #fff; /* Texto blanco */
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 150px; /* Ancho fijo para todos los botones */
+            margin-left: 100px; /* Movemos los botones 100px a la derecha */
+            margin-top: 20px;
+        }
+        #info-panel {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            height: calc(100vh - 40px); /* Altura de la ventana menos el padding superior e inferior */
+            overflow-y: auto; /* Agregar barra de desplazamiento vertical si el contenido excede el tamaño */
+            background-color: #4E5EE8; /* Color de fondo azul */
+            color: white; /* Texto blanco */
+            position: relative;
+        }
+        #info-panel h2 {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        #searchInputEmployees {
+            width: 150px;
+            margin-right: 20px;
+        }
+        #addEmployee {
+            background-color: #378FFA ; /* Azul pastel */
+            margin: 5px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 150px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        #editEmployee {
+            background-color: #378FFA ; /* Azul pastel */
+            margin: 5px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 150px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        #deleteEmployee {
+            background-color: #378FFA ; /* Azul pastel */
+            margin: 5px;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            width: 150px;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        #ediTab {
+            color: #000000;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+        }
+        .left-panel {
+            flex: 1;
+            padding-right: 20px;
+        }
+        .right-panel {
+            flex: 2;
+        }
+    </style>
+      <!--  -->
+   </head>
+
+   <body class="size-1520 primary-color-red background-dark">
+      <!-- HEADER -->
+      <header class="grid">
+        <!-- Top Navigation -->
+        <nav class="s-12 grid background-none background-primary-hightlight">
+           <!-- logo -->
+           <a href="index.html" class="m-12 l-3 padding-2x logo" style="padding: 31px;">
+              <img src="img/LogoK3.png" >
+           </a>
+
+           <div class="top-nav s-12 l-9"> 
+              <ul class="top-ul right chevron">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about-us.html">Sobre Nosotros</a></li>
+                <li><a href="#Botones">Servicios</a></li>
+                <li><a href="contact.html">Contactos</a></li>
+              </ul>
+           </div>
+
+        </nav>
+      </header>
+      
+      <!-- MAIN -->
+      <main class="container">
+        <div class="left-panel">
+            <div id="buscador">
+                <h2>Bienvenido, Jorge Chavez</h2>
+                <input type="text" id="searchInput" placeholder="Buscar...">
+                <button onclick="searchFunction()">Buscar</button>
+            </div>
+        
+            <section id="productos">
+                <button class="boton-seccion" onclick="mostrarInformacion('Productos')">INVENTARIO</button>
+                <!-- Aquí podrías agregar formularios para agregar, editar o eliminar productos -->
+            </section>
+            
+            <section id="clientes">
+                <button class="boton-seccion" onclick="mostrarInformacion('Clientes')">CLIENTES</button>
+                <!-- Aquí podrías agregar funciones para ver información de los clientes o administrar sus cuentas -->
+            </section>
+            
+            <section id="ventas">
+                <button class="boton-seccion" onclick="mostrarInformacion('Ventas')">VENTAS</button>
+                <!-- Aquí podrías agregar funciones para ver ventas, generar reportes, etc. -->
+            </section>
+
+            <section id="empleados">
+                <button class="boton-seccion" onclick="mostrarInformacion('Empleados')">EMPLEADOS</button>
+                <!-- Aquí podrías agregar funciones para administrar información de empleados -->
+            </section>
+
+            <section id="grafico">
+                <button class="boton-seccion" onclick="mostrarInformacion('Grafico')">GRÁFICO</button>
+                <!-- Aquí podrías agregar funciones para mostrar gráficos -->
+            </section>
+        </div>
+        <div class="right-panel">
+            <div id="info-panel">
+                <!--<h2>Información de Empleados</h2><br>
+                <input type="text" id="searchInputEmployees" placeholder="Buscar...">
+                <button id="addEmployee">Añadir</button>
+                <button id="editEmployee">Modificar</button>
+                <button id="deleteEmployee">Eliminar</button>
+                <br>
+                <table id="ediTab">
+                    <tr>
+                        <th bgcolor="#378FFA">Nombre</th>
+                        <th bgcolor="#378FFA">Apellido Paterno</th>
+                        <th bgcolor="#378FFA">Apellido Materno</th>
+                        <th bgcolor="#378FFA">CI</th>
+                        <th bgcolor="#378FFA">Puesto</th>
+                        <th bgcolor="#378FFA">Celular</th>
+                        <th bgcolor="#378FFA">Género</th>
+                    </tr>
+                    <tr>
+                        <td>Jorge</td>
+                        <td>Chavez</td>
+                        <td>Cruz</td>
+                        <td>941231</td>
+                        <td>Gerente</td>
+                        <td>78681511</td>
+                        <td>Masculino</td>
+                    </tr>
+                    <tr>
+                        <td>María Antonieta</td>
+                        <td>De Las Nieves</td>
+                        <td> </td>
+                        <td>1541010</td>
+                        <td>Contadora</td>
+                        <td>6215611</td>
+                        <td>Femenino</td>
+                    </tr>
+                    <tr>
+                        <td>Carlos</td>
+                        <td>Martínez</td>
+                        <td>García</td>
+                        <td>1216515</td>
+                        <td>Inventario</td>
+                        <td>7165065</td>
+                        <td>Masculino</td>
+                    </tr>
+                    <tr>
+                        <td>Sheila</td>
+                        <td>Martínez</td>
+                        <td>García</td>
+                        <td>15616511</td>
+                        <td>Márquetin</td>
+                        <td>61561691</td>
+                        <td>Femenino</td>
+                    </tr>
+                    <tr>
+                        <td>Juana</td>
+                        <td>Calle</td>
+                        <td>Rojas</td>
+                        <td>15614562</td>
+                        <td>Vendedora</td>
+                        <td>72312316</td>
+                        <td>Femenino</td>
+                    </tr>
+                </table>-->
+            </div>
+        </div>
+    </main>
+    
+
+    <script>
+        function mostrarInformacion(opcion) {
+            var infoPanel = document.getElementById('info-panel');
+            infoPanel.innerHTML = ''; // Limpiar contenido previo
+
+            switch (opcion) {
+                case 'Productos':
+                    infoPanel.innerHTML = '<h2>Información de Productos</h2><p>Aquí iría la información de los productos.</p>';
+                    break;
+                case 'Clientes':
+                    infoPanel.innerHTML = '<h2>Información de Clientes</h2><p>Aquí iría la información de los clientes.</p>';
+                    break;
+                case 'Ventas':
+                    infoPanel.innerHTML = '<h2>Información de Ventas</h2><p>Aquí iría la información de las ventas.</p>';
+                    break;
+
+                case 'Empleados':
+                    infoPanel.innerHTML = '<h2>Lista de Empleados</h2><br>' +
+                                          '<input type="text" id="searchInputEmployees" placeholder="Buscar...">' +
+                                          '<button id="addEmployee">Añadir</button>' +
+                                          '<button id="editEmployee">Modificar</button>' +
+                                          '<button id="deleteEmployee">Eliminar</button>' +
+                                          '<table id="ediTab">' +
+                                          '<tr>' +
+                                          '<th bgcolor="#378FFA">Nombre</th>' +
+                                          '<th bgcolor="#378FFA">Apellido Paterno</th>' +
+                                          '<th bgcolor="#378FFA">Apellido Materno</th>' +
+                                          '<th bgcolor="#378FFA">CI</th>' +
+                                          '<th bgcolor="#378FFA">Puesto</th>' +
+                                          '<th bgcolor="#378FFA">Celular</th>' +
+                                          '<th bgcolor="#378FFA">Género</th>' +
+                                          '</tr>' +
+                                          '<tr>' +
+                                          '<td>Jorge</td>'+
+                                          '<td>Chavez</td>'+
+                                          '<td>Cruz</td>'+
+                                          '<td>941231</td>'+
+                                          '<td>Gerente</td>'+
+                                          '<td>78681511</td>'+
+                                          '<td>Masculino</td>'+
+                                          '</tr>' +
+                                          '<tr>' +
+                                          '<td>María Antonieta</td>'+
+                                          '<td>De Las Nieves</td>'+
+                                          '<td> </td>'+
+                                          '<td>1541010</td>'+
+                                          '<td>Contadora</td>'+
+                                          '<td>6215611</td>'+
+                                          '<td>Femenino</td>'+
+                                          '</tr>' +
+                                          '<tr>' +
+                                          '<td>Carlos</td>'+
+                                          '<td>Martínez</td>'+
+                                          '<td>García</td>'+
+                                          '<td>1216515</td>'+
+                                          '<td>Inventario</td>'+
+                                          '<td>7165065</td>'+
+                                          '<td>Masculino</td>'+
+                                          '</tr>' +
+                                          '<tr>' +
+                                          '<td>Sheila</td>'+
+                                          '<td>Martínez</td>'+
+                                          '<td>García</td>'+
+                                          '<td>15616511</td>'+
+                                          '<td>Márquetin</td>'+
+                                          '<td>61561691</td>'+
+                                          '<td>Femenino</td>'+
+                                          '</tr>' +
+                                          '<tr>' +
+                                          '<td>Juana</td>'+
+                                          '<td>Calle</td>'+
+                                          '<td>Rojas</td>'+
+                                          '<td>15614562</td>'+
+                                          '<td>Vendedora</td>'+
+                                          '<td>72312316</td>'+
+                                          '<td>Femenino</td>'+
+                                          '</tr>' +
+                                          '</table>';
+                    break;
+                case 'Grafico':
+                    infoPanel.innerHTML = '<h2>GRÁFICO DE PROYECCIÓN DE INGRESOS POR VENTAS ANUALES</h2><br><img src="img/Gráfico.png">';
+                    break;
+                default:
+                    infoPanel.innerHTML = '<h2>Información</h2><p>Selecciona una opción para ver la información correspondiente.</p>';
+            }
+        }
+
+        function searchFunction() {
+            var input, filter, sections, section, h2, i, txtValue;
+            input = document.getElementById('searchInput');
+            filter = input.value.toUpperCase();
+            sections = document.getElementsByTagName('section');
+            for (i = 0; i < sections.length; i++) {
+                section = sections[i];
+                h2 = section.getElementsByTagName('h2')[0];
+                txtValue = h2.textContent || h2.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    section.style.display = '';
+                } else {
+                    section.style.display = 'none';
+                }
+            }
+        }
+    </script>     
+    <br>
+      <!-- FOOTER -->
+      <footer class="grid">
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+          <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+          <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.</p>
+          <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+      </footer>                                                                    
+      <script type="text/javascript" src="js/responsee.js"></script>
+      <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+      <script type="text/javascript" src="js/template-scripts.js"></script>
+
+   </body>
+</html>

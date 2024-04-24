@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/styles.css">
+<!--Icono-->
+<link rel="icon" type="image/jpeg" href="img/Empresa_1.jpeg">
+<title>Almacenero's area</title>
+</head>
+<body>
+<div class="header">
+  <div>
+    <img src="img\logoK3.png" alt="Logo de la empresa" class="logo">
+  </div>
+  <div>
+    <h1 class="titulo">CONTROL DE INVENTARIO</h1>
+  </div>
+  <div class = "botones-container">
+    <button class = "boton">Documentos</button>
+    <button class = "boton">Reportar</button>
+  </div>
+</div>
+<div class = "herramientas">
+	<div class="otro-contenedor">
+		<button class="boton">Añadir</button>
+		<button class="boton">Modificar</button>
+		<button class="boton">Eliminar</button>
+	  </div>
+</div>  
+
+	<div class="otro-contenedor">
+		<div>
+		<button class="botonBuscar">Buscar</button>
+		<input type="text" placeholder="Buscar" class="busqueda">
+		</div>
+		<button class="botonFiltros">Filtros</button>
+	  </div>
+
+<!-- Aquí sigue el contenido de la página -->
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tipo</th>
+      <th>Marca</th>
+      <th>Talla</th>
+      <th>Material</th>
+      <th>Color</th>
+      <th>Stock</th>
+      <th>Nro Stand</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+	  <td>AA-01</td>
+	  <td>Blusa</td>
+	  <td>Prada</td>
+	  <td>XL</td>
+	  <td>Algodón</td>
+	  <td>Rojo</td>
+	  <td>20</td>
+	  <td>27-A</td>
+	</tr>
+	<tr>
+	  <td>AA-02</td>
+	  <td>Pantalón</td>
+	  <td>Zara</td>
+	  <td>M</td>
+	  <td>Denim</td>
+	  <td>Azul Oscuro</td>
+	  <td>15</td>
+	  <td>27-B</td>
+	</tr>
+	<tr>
+	  <td>AA-03</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>S</td>
+	  <td>Lino</td>
+	  <td>Blanco</td>
+	  <td>10</td>
+	  <td>28-C</td>
+	</tr>
+	<tr>
+	  <td>AA-04</td>
+	  <td>Camiseta</td>
+	  <td>Nike</td>
+	  <td>L</td>
+	  <td>Algodón</td>
+	  <td>Negro</td>
+	  <td>25</td>
+	  <td>28-D</td>
+	</tr>
+	<tr>
+	  <td>AA-05</td>
+	  <td>Shorts</td>
+	  <td>Adidas</td>
+	  <td>XL</td>
+	  <td>Poliéster</td>
+	  <td>Azul</td>
+	  <td>30</td>
+	  <td>28-E</td>
+	</tr>
+	<tr>
+	  <td>AA-06</td>
+	  <td>Falda</td>
+	  <td>GAP</td>
+	  <td>M</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>20</td>
+	  <td>29-A</td>
+	</tr>
+	<tr>
+	  <td>AA-07</td>
+	  <td>Chaqueta</td>
+	  <td>Levi's</td>
+	  <td>L</td>
+	  <td>Mezclilla</td>
+	  <td>Azul</td>
+	  <td>15</td>
+	  <td>29-B</td>
+	</tr>
+	<tr>
+	  <td>AA-08</td>
+	  <td>Camisa</td>
+	  <td>Zara</td>
+	  <td>S</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>18</td>
+	  <td>29-C</td>
+	</tr>
+	<tr>
+	  <td>AA-09</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>M</td>
+	  <td>Seda</td>
+	  <td>Negro</td>
+	  <td>22</td>
+	  <td>29-D</td>
+	</tr>
+	<tr>
+	  <td>AA-10</td>
+	  <td>Pantalón</td>
+	  <td>GAP</td>
+	  <td>32</td>
+	  <td>Algodón</td>
+	  <td>Gris</td>
+	  <td>12</td>
+	  <td>29-E</td>
+	</tr>
+    <tr>
+	  <td>BB-01</td>
+	  <td>Pantalón</td>
+	  <td>Zara</td>
+	  <td>M</td>
+	  <td>Denim</td>
+	  <td>Azul Oscuro</td>
+	  <td>15</td>
+	  <td>27-B</td>
+	</tr>
+	<tr>
+	  <td>BB-02</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>S</td>
+	  <td>Lino</td>
+	  <td>Blanco</td>
+	  <td>10</td>
+	  <td>28-C</td>
+	</tr>
+	<tr>
+	  <td>BB-03</td>
+	  <td>Camiseta</td>
+	  <td>Nike</td>
+	  <td>L</td>
+	  <td>Algodón</td>
+	  <td>Negro</td>
+	  <td>25</td>
+	  <td>28-D</td>
+	</tr>
+	<tr>
+	  <td>BB-04</td>
+	  <td>Shorts</td>
+	  <td>Adidas</td>
+	  <td>XL</td>
+	  <td>Poliéster</td>
+	  <td>Azul</td>
+	  <td>30</td>
+	  <td>28-E</td>
+	</tr>
+	<tr>
+	  <td>BB-05</td>
+	  <td>Falda</td>
+	  <td>GAP</td>
+	  <td>M</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>20</td>
+	  <td>29-A</td>
+	</tr>
+	<tr>
+	  <td>BB-06</td>
+	  <td>Chaqueta</td>
+	  <td>Levi's</td>
+	  <td>L</td>
+	  <td>Mezclilla</td>
+	  <td>Azul</td>
+	  <td>15</td>
+	  <td>29-B</td>
+	</tr>
+	<tr>
+	  <td>BB-07</td>
+	  <td>Camisa</td>
+	  <td>Zara</td>
+	  <td>S</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>18</td>
+	  <td>29-C</td>
+	</tr>
+	<tr>
+	  <td>BB-08</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>M</td>
+	  <td>Seda</td>
+	  <td>Negro</td>
+	  <td>22</td>
+	  <td>29-D</td>
+	</tr>
+	<tr>
+	  <td>BB-09</td>
+	  <td>Pantalón</td>
+	  <td>GAP</td>
+	  <td>32</td>
+	  <td>Algodón</td>
+	  <td>Gris</td>
+	  <td>12</td>
+	  <td>29-E</td>
+	</tr>
+	<tr>
+	  <td>BB-10</td>
+	  <td>Blusa</td>
+	  <td>Prada</td>
+	  <td>XL</td>
+	  <td>Algodón</td>
+	  <td>Rojo</td>
+	  <td>20</td>
+	  <td>30-A</td>
+	</tr>
+	<tr>
+	  <td>CC-01</td>
+	  <td>Jeans</td>
+	  <td>Levi's</td>
+	  <td>32</td>
+	  <td>Denim</td>
+	  <td>Azul Oscuro</td>
+	  <td>25</td>
+	  <td>27-B</td>
+	</tr>
+	<tr>
+	  <td>CC-02</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>S</td>
+	  <td>Lino</td>
+	  <td>Blanco</td>
+	  <td>10</td>
+	  <td>28-C</td>
+	</tr>
+	<tr>
+	  <td>CC-03</td>
+	  <td>Camiseta</td>
+	  <td>Nike</td>
+	  <td>L</td>
+	  <td>Algodón</td>
+	  <td>Negro</td>
+	  <td>25</td>
+	  <td>28-D</td>
+	</tr>
+	<tr>
+	  <td>CC-04</td>
+	  <td>Shorts</td>
+	  <td>Adidas</td>
+	  <td>XL</td>
+	  <td>Poliéster</td>
+	  <td>Azul</td>
+	  <td>30</td>
+	  <td>28-E</td>
+	</tr>
+	<tr>
+	  <td>CC-05</td>
+	  <td>Falda</td>
+	  <td>GAP</td>
+	  <td>M</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>20</td>
+	  <td>29-A</td>
+	</tr>
+	<tr>
+	  <td>CC-06</td>
+	  <td>Chaqueta</td>
+	  <td>Levi's</td>
+	  <td>L</td>
+	  <td>Mezclilla</td>
+	  <td>Azul</td>
+	  <td>15</td>
+	  <td>29-B</td>
+	</tr>
+	<tr>
+	  <td>CC-07</td>
+	  <td>Camisa</td>
+	  <td>Zara</td>
+	  <td>S</td>
+	  <td>Algodón</td>
+	  <td>Blanco</td>
+	  <td>18</td>
+	  <td>29-C</td>
+	</tr>
+	<tr>
+	  <td>CC-08</td>
+	  <td>Vestido</td>
+	  <td>H&M</td>
+	  <td>M</td>
+	  <td>Seda</td>
+	  <td>Negro</td>
+	  <td>22</td>
+	  <td>29-D</td>
+	</tr>
+	<tr>
+	  <td>CC-09</td>
+	  <td>Pantalón</td>
+	  <td>GAP</td>
+	  <td>32</td>
+	  <td>Algodón</td>
+	  <td>Gris</td>
+	  <td>12</td>
+	  <td>29-E</td>
+	</tr>
+	<tr>
+	  <td>CC-10</td>
+	  <td>Blusa</td>
+	  <td>Prada</td>
+	  <td>XL</td>
+	  <td>Algodón</td>
+	  <td>Rojo</td>
+	  <td>20</td>
+	  <td>30-A</td>
+	</tr>
+
+  </tbody>
+</table>
+
+<footer>
+    <a id="changing-text" href="https://www.ejemplo.com">AYUDA</a>
+</footer>
+</body>
+</html>
