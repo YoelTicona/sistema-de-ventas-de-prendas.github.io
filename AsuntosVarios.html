@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="stylesFinanzas.css">
+    <script src="js/script.js" defer></script>
+    <title>Movimientos Financieros</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 6px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Movimientos Financieros</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Monto</th>
+                <th>Observaciones</th>
+            </tr>
+        </thead>
+        <tbody id="movimientos">
+            <!-- Aquí se cargarán los movimientos financieros -->
+        </tbody>
+    </table>
+    <!--<button class="btn" id="addIngreso">Agregar Ingreso</button>-->
+    <button class="btn" id="addGastoIngresoCompra">Agregar Gasto, Ingreso o compra</button>
+    <!--<button class="btn" id="addCompra">Agregar Compra</button>-->
+ 
+
+    <script>
+
+
+          document.getElementById('addGastoIngresoCompra').addEventListener('click', function() {
+    // Obtener los valores ingresados por el usuario usando prompt
+    var fechaActual = new Date();
+    var fechaFormateada = fechaActual.toLocaleDateString();
+    var Fecha = window.prompt("La fecha se llena el dia de hoy:", fechaFormateada);
+    var tipo = window.prompt("Ingrese el tipo ya sea gasto,ingreso o compra:");
+    var descripcion = window.prompt("Ingrese la descripción del gasto:");
+    var monto = window.prompt("Ingrese el monto del gasto:");
+    var Observaciones = window.prompt("Ingrese las observaciones del gasto:");
+
+    // Crear una nueva fila en la tabla
+    var fila = document.createElement("tr");
+
+    // Crear las celdas para la nueva fila
+    var celdaFecha = document.createElement("td");
+    var celdatipo = document.createElement("td");
+    var celdaDescripcion = document.createElement("td");
+    var celdaMonto = document.createElement("td");
+    var celdaObservaciones = document.createElement("td");
+
+    // Agregar los valores ingresados por el usuario a las celdas
+    celdaFecha.textContent = Fecha;
+    celdatipo.textContent = tipo;
+    celdaDescripcion.textContent = descripcion;
+    celdaMonto.textContent = monto;
+    celdaObservaciones.textContent = 'Ninguno';
+
+    // Agregar las celdas a la fila
+    fila.appendChild(celdaFecha);
+    fila.appendChild(celdatipo);
+    fila.appendChild(celdaDescripcion);
+    fila.appendChild(celdaMonto);
+    fila.appendChild(celdaObservaciones);
+
+    // Agregar la fila a la tabla
+    var tabla = document.getElementById("movimientos");
+    tabla.appendChild(fila);
+});
+    </script>
+</body>
+
+</html>
