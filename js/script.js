@@ -17,7 +17,8 @@ function abrirModal(opcion) {
             break;
         case 'INVENTARIO':
             // Mostrar lista de productos en inventario
-            contenidoModal = '<h2>Lista de Productos en Inventario</h2>';
+            window.location.href = "AsuntosVarios.html";
+            //contenidoModal = '<h2>Lista de Productos en Inventario</h2>';
             
             break;
         case 'BUSCAR':
