@@ -169,20 +169,39 @@ function dibujarGraficoVentas() {
 
 
   /*generar el PDF*/
-  function generarPDF() {
+function generarPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-
-    doc.text("Estado Financiero", 20, 20);
-    doc.text("Ingresos: $1000", 20, 30);
-    doc.text("Egresos: $500", 20, 40);
-    doc.text("Balance Neto: $500", 20, 50);
-
-    // Más información puede ser agregada aquí según sea necesario
-
+  
+    // Título
+    doc.text("Balance General", 20, 20);
+  
+    // ACTIVO
+    doc.text("ACTIVO", 20, 30);
+    doc.text("Efectivo en caja", 30, 40);
+    doc.text("Documentos por cobrar", 30, 50);
+    doc.text("Terrenos", 30, 60);
+    doc.text("Total activo", 30, 70);
+    doc.text("250.000", 150, 70);
+  
+    // PASIVO
+    doc.text("PASIVO", 20, 80);
+    doc.text("Cuentas por pagar", 30, 90);
+    doc.text("40.000", 150, 90);
+    doc.text("Hipoteca a pagar", 30, 100);
+    doc.text("50.000", 150, 100);
+    doc.text("Total pasivo", 30, 110);
+    doc.text("90.000", 150, 110);
+  
+    // CAPITAL
+    doc.text("CAPITAL", 20, 120);
+    doc.text("Esther Gómez, propietaria", 30, 130);
+    doc.text("Total pasivo y capital", 30, 140);
+    doc.text("250.000", 150, 140);
+  
     // Guardar el documento
-    doc.save('estado_financiero.pdf');
-
+    doc.save('balance_general.pdf');
+  
     // Opcional: cerrar modal después de generar el PDF
     cerrarModal();
-} 
+  }
