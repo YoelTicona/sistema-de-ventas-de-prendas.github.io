@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en-US">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Sistema de Ventas</title>
+      <link rel="stylesheet" href="css/components.css">
+      <link rel="stylesheet" href="css/icons.css">
+      <link rel="stylesheet" href="css/responsee.css">
+      <link rel="stylesheet" href="css/ventas.css">
+      <!--Icono-->
+      <link rel="icon" type="image/jpeg" href="img/Empresa_1.jpeg">
+      <!-- CUSTOM STYLE -->      
+      <link rel="stylesheet" href="css/template-style.css">
+      <link href="css/googleApiFont.css" rel="stylesheet">  
+      <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+      <script type="text/javascript" src="js/jquery-ui.min.js"></script>   
+   </head>
+   
+   <body class="size-1520 primary-color-red background-dark">
+      <!-- HEADER -->
+      <header class="grid">
+        <!-- Top Navigation -->
+        <nav class="s-12 grid background-none background-primary-hightlight">
+           <!-- logo -->
+           <a href="index.html" class="m-12 l-3 padding-2x logo" style="padding: 10px 0px 0px 0px;">
+              <img src="img/LogoK3.png" >
+           </a>
+           <div class="top-nav s-12 l-9"> 
+              <ul class="top-ul right chevron">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="about-us.html">Sobre Nosotros</a></li>
+                <li><a href="index.html">Servicios</a></li>
+                <li><a href="contact.html">Contactos</a></li>
+              </ul>
+           </div>
+        </nav>
+      </header>
+      
+      <!-- MAIN -->
+      <main role="main">
+        <!-- TOP SECTION -->
+        <header class="grid">
+          <div class="s-12 padding-2x">
+            <h1 class="text-strong text-white text-center center text-size-60 text-uppercase margin-bottom-20">Registrar clientes</h1>
+          </div>
+        </header>
+        <!--Encabezado-->
+        <section class="Menu2">
+          <ul class="menu-horizontal ">
+            <li><a href="RegistroClientes.html">Registrar Clientes</a></li>
+            <li><a href="RegistroVentas.html">Registrar Ventas</a></li>
+            <li><a href="PrendasMasVendidas.html">Prendas mas vendidas</a></li>  
+          </ul>
+        </section>
+        <section class="tabla_Principal">
+          <div class="operaciones">
+            <ul>
+              <li><strong>Operaciones</strong></li>
+              <li><button>Mejores clientes</button></li>
+          </div>
+          <div class="tablaP">
+            <input type="search" name="buscar" placeholder="Buscar">
+            <div class="tablaDatos">
+    <table id="dynamicTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Correo</th>
+                <th>Cantidad P.</th>
+                <th>Prendas</th>
+                <th>Acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="number" name="ide" placeholder="12" required></td>
+                <td><input type="text" name="nombre" placeholder="John" required></td>
+                <td><input type="text" name="apellidos" placeholder="Vargas" required></td>
+                <td><input type="email" name="Correo" placeholder="Callisaya" required></td>
+                <td><input type="number" name="Cantidad Prendas" placeholder="1"></td>
+                <td><input type="text" name="Prendas" placeholder="Prenda 1" required></td>
+                <td>
+                    <button onclick="editRow(this)">Modificar cliente</button>
+                    <button onclick="deleteRow(this)">Eliminar cliente</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button onclick="addRow()">Añadir Cliente</button>
+    <script src="script.js"></script>
+            </div>
+          </div>
+          
+        </section>
+      </main>
+
+      <br>  
+      <!-- FOOTER -->
+      <footer class="grid">
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+          <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+          <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.</p>
+          <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+      </footer>    
+      <script type="text/javascript" src="js/responsee.js"></script>
+      <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+      <script type="text/javascript" src="js/template-scripts.js"></script>
+      <script type="text/javascript">
+        function addRow() {
+        const table = document.getElementById("dynamicTable").getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+        const cell4 = newRow.insertCell(3);
+        const cell5 = newRow.insertCell(4);
+        const cell6 = newRow.insertCell(5);
+        const cell7 = newRow.insertCell(6);
+        
+        cell1.innerHTML = '<input type="number" name="ide" placeholder="1234" required>';
+        cell2.innerHTML = '<input type="text" name="nombre" placeholder="John" required>';
+        cell3.innerHTML = '<input type="text" name="apellidos" placeholder="Vargas" required>';
+        cell4.innerHTML = '<input type="email" name="Correo" placeholder="Callisaya" required>';
+        cell5.innerHTML = '<input type="number" name="Cantidad Prendas" placeholder="20">';
+        cell6.innerHTML = '<input type="text" name="Prendas" placeholder="Prenda 1" required>';
+        cell7.innerHTML = '<button onclick="editRow(this)">Modificar</button> <button onclick="deleteRow(this)">Eliminar</button>';
+    }
+
+    function deleteRow(r) {
+        const i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("dynamicTable").deleteRow(i);
+    }
+
+    function editRow(r) {
+        const row = r.parentNode.parentNode;
+        const cells = row.getElementsByTagName('td');
+        
+        for (let i = 0; i < cells.length - 1; i++) {
+            const input = cells[i].getElementsByTagName('input')[0];
+            if (input.disabled) {
+                input.disabled = false;
+                r.textContent = "Guardar";
+            } else {
+                input.disabled = true;
+                r.textContent = "Modificar";
+            }
+        }
+    }
+      </script>
+   </body>
+</html>
