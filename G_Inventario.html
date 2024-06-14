@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerencia - Inventario</title>
+    <link rel="icon" href="">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/icons.css">
+    <link rel="stylesheet" href="css/responsee.css">
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <!-- Icono -->
+    <link rel="icon" type="image/png" href="img/LogoK3.png">
+    <!-- CUSTOM STYLE -->
+    <link rel="stylesheet" href="css/template-style.css">
+    <link href="css/googleApiFont.css" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="styles.css"> <!-- Enlaza tu archivo de estilos CSS -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: transparent;
+            padding: 10px 20px;
+        }
+        .navbar img.logo {
+            height: 50px;
+        }
+        .navbar .menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .navbar .menu a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .navbar .menu a:hover {
+            color: #007BFF;
+        }
+        .navbar .avatar {
+            position: relative;
+            cursor: pointer;
+        }
+        .navbar .avatar img {
+            height: 40px;
+            border-radius: 50%;
+        }
+        .navbar .avatar .dropdown {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            z-index: 1000;
+        }
+        .navbar .avatar .dropdown a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        .navbar .avatar .dropdown a:hover {
+            background-color: #f1f1f1;
+        }
+        .navbar .avatar.active .dropdown {
+            display: block;
+        }
+        .title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 2em;
+            color: white;
+        }
+        .date-selector {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            gap: 10px;
+        }
+        .date-selector input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .date-selector img {
+            height: 25px;
+            cursor: pointer;
+        }
+        .generate-doc-button {
+            padding: 10px 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .generate-doc-button:hover {
+            background-color: #f1f1f1;
+            align-content: center;
+        }
+    </style>
+    <script>
+        $(function() {
+            $(".datepicker").datepicker({
+                dateFormat: "dd/mm/yy"
+            });
+
+            $(".calendar-icon").click(function() {
+                $(this).prev(".datepicker").datepicker("show");
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const avatar = document.querySelector('.navbar .avatar');
+            avatar.addEventListener('click', function() {
+                avatar.classList.toggle('active');
+            });
+            document.addEventListener('click', function(event) {
+                if (!avatar.contains(event.target)) {
+                    avatar.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</head>
+<body class="size-1520 primary-color-red background-dark">
+    <!-- HEADER -->
+    <div class="navbar">
+        <header class="grid">
+            <!-- Top Navigation -->
+            <nav class="s-12 grid background-none background-primary-hightlight">
+                <!-- logo -->
+                <a href="index.html" class="m-12 l-3 padding-2x logo" style="padding: 31px;">
+                    <img src="img/LogoK3.png">
+                </a>
+                <div class="top-nav s-12 l-9">
+                    <ul class="top-ul right chevron menu">
+                        <li><a href="Gerencia.html">Inicio</a></li>
+                        <li><a href="G_Inventario.html">Inventario</a></li>
+                        <li><a href="G_Ventas.html">Ventas</a></li>
+                        <li><a href="Empleados.html">Empleados</a></li>
+                        <div class="avatar">
+                            <img src="img/avatar.png" alt="Gerente Avatar">
+                            <div class="dropdown">
+                                <a href="index.html">Salir</a>
+                                <a href="#">Configuración</a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+    </div>
+    <div class="title">REPORTES DE INVENTARIO</div>
+    <div class="date-selector">
+        <label for="from">Fecha: desde</label>
+        <input type="text" id="from" class="datepicker" placeholder="dd/mm/aaaa">
+        <img src="img/calendario.png" alt="Calendario" class="calendar-icon">
+        <label for="to">hasta</label>
+        <input type="text" id="to" class="datepicker" placeholder="dd/mm/aaaa">
+        <img src="img/calendario.png" alt="Calendario" class="calendar-icon">
+        <button class="generate-doc-button">Buscar</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Tipo</th>
+          <th>Marca</th>
+          <th>Talla</th>
+          <th>Material</th>
+          <th>Color</th>
+          <th>Stock</th>
+          <th>Nro Stand</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AA-01</td>
+          <td>Blusa</td>
+          <td>Prada</td>
+          <td>XL</td>
+          <td>Algodón</td>
+          <td>Rojo</td>
+          <td>20</td>
+          <td>27-A</td>
+        </tr>
+        <tr>
+          <td>AA-02</td>
+          <td>Pantalón</td>
+          <td>Zara</td>
+          <td>M</td>
+          <td>Denim</td>
+          <td>Azul Oscuro</td>
+          <td>15</td>
+          <td>27-B</td>
+        </tr>
+        <tr>
+          <td>AA-03</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>S</td>
+          <td>Lino</td>
+          <td>Blanco</td>
+          <td>10</td>
+          <td>28-C</td>
+        </tr>
+        <tr>
+          <td>AA-04</td>
+          <td>Camiseta</td>
+          <td>Nike</td>
+          <td>L</td>
+          <td>Algodón</td>
+          <td>Negro</td>
+          <td>25</td>
+          <td>28-D</td>
+        </tr>
+        <tr>
+          <td>AA-05</td>
+          <td>Shorts</td>
+          <td>Adidas</td>
+          <td>XL</td>
+          <td>Poliéster</td>
+          <td>Azul</td>
+          <td>30</td>
+          <td>28-E</td>
+        </tr>
+        <tr>
+          <td>AA-06</td>
+          <td>Falda</td>
+          <td>GAP</td>
+          <td>M</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>20</td>
+          <td>29-A</td>
+        </tr>
+        <tr>
+          <td>AA-07</td>
+          <td>Chaqueta</td>
+          <td>Levi's</td>
+          <td>L</td>
+          <td>Mezclilla</td>
+          <td>Azul</td>
+          <td>15</td>
+          <td>29-B</td>
+        </tr>
+        <tr>
+          <td>AA-08</td>
+          <td>Camisa</td>
+          <td>Zara</td>
+          <td>S</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>18</td>
+          <td>29-C</td>
+        </tr>
+        <tr>
+          <td>AA-09</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>M</td>
+          <td>Seda</td>
+          <td>Negro</td>
+          <td>22</td>
+          <td>29-D</td>
+        </tr>
+        <tr>
+          <td>AA-10</td>
+          <td>Pantalón</td>
+          <td>GAP</td>
+          <td>32</td>
+          <td>Algodón</td>
+          <td>Gris</td>
+          <td>12</td>
+          <td>29-E</td>
+        </tr>
+        <tr>
+          <td>BB-01</td>
+          <td>Pantalón</td>
+          <td>Zara</td>
+          <td>M</td>
+          <td>Denim</td>
+          <td>Azul Oscuro</td>
+          <td>15</td>
+          <td>27-B</td>
+        </tr>
+        <tr>
+          <td>BB-02</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>S</td>
+          <td>Lino</td>
+          <td>Blanco</td>
+          <td>10</td>
+          <td>28-C</td>
+        </tr>
+        <tr>
+          <td>BB-03</td>
+          <td>Camiseta</td>
+          <td>Nike</td>
+          <td>L</td>
+          <td>Algodón</td>
+          <td>Negro</td>
+          <td>25</td>
+          <td>28-D</td>
+        </tr>
+        <tr>
+          <td>BB-04</td>
+          <td>Shorts</td>
+          <td>Adidas</td>
+          <td>XL</td>
+          <td>Poliéster</td>
+          <td>Azul</td>
+          <td>30</td>
+          <td>28-E</td>
+        </tr>
+        <tr>
+          <td>BB-05</td>
+          <td>Falda</td>
+          <td>GAP</td>
+          <td>M</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>20</td>
+          <td>29-A</td>
+        </tr>
+        <tr>
+          <td>BB-06</td>
+          <td>Chaqueta</td>
+          <td>Levi's</td>
+          <td>L</td>
+          <td>Mezclilla</td>
+          <td>Azul</td>
+          <td>15</td>
+          <td>29-B</td>
+        </tr>
+        <tr>
+          <td>BB-07</td>
+          <td>Camisa</td>
+          <td>Zara</td>
+          <td>S</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>18</td>
+          <td>29-C</td>
+        </tr>
+        <tr>
+          <td>BB-08</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>M</td>
+          <td>Seda</td>
+          <td>Negro</td>
+          <td>22</td>
+          <td>29-D</td>
+        </tr>
+        <tr>
+          <td>BB-09</td>
+          <td>Pantalón</td>
+          <td>GAP</td>
+          <td>32</td>
+          <td>Algodón</td>
+          <td>Gris</td>
+          <td>12</td>
+          <td>29-E</td>
+        </tr>
+        <tr>
+          <td>BB-10</td>
+          <td>Blusa</td>
+          <td>Prada</td>
+          <td>XL</td>
+          <td>Algodón</td>
+          <td>Rojo</td>
+          <td>20</td>
+          <td>30-A</td>
+        </tr>
+        <tr>
+          <td>CC-01</td>
+          <td>Jeans</td>
+          <td>Levi's</td>
+          <td>32</td>
+          <td>Denim</td>
+          <td>Azul Oscuro</td>
+          <td>25</td>
+          <td>27-B</td>
+        </tr>
+        <tr>
+          <td>CC-02</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>S</td>
+          <td>Lino</td>
+          <td>Blanco</td>
+          <td>10</td>
+          <td>28-C</td>
+        </tr>
+        <tr>
+          <td>CC-03</td>
+          <td>Camiseta</td>
+          <td>Nike</td>
+          <td>L</td>
+          <td>Algodón</td>
+          <td>Negro</td>
+          <td>25</td>
+          <td>28-D</td>
+        </tr>
+        <tr>
+          <td>CC-04</td>
+          <td>Shorts</td>
+          <td>Adidas</td>
+          <td>XL</td>
+          <td>Poliéster</td>
+          <td>Azul</td>
+          <td>30</td>
+          <td>28-E</td>
+        </tr>
+        <tr>
+          <td>CC-05</td>
+          <td>Falda</td>
+          <td>GAP</td>
+          <td>M</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>20</td>
+          <td>29-A</td>
+        </tr>
+        <tr>
+          <td>CC-06</td>
+          <td>Chaqueta</td>
+          <td>Levi's</td>
+          <td>L</td>
+          <td>Mezclilla</td>
+          <td>Azul</td>
+          <td>15</td>
+          <td>29-B</td>
+        </tr>
+        <tr>
+          <td>CC-07</td>
+          <td>Camisa</td>
+          <td>Zara</td>
+          <td>S</td>
+          <td>Algodón</td>
+          <td>Blanco</td>
+          <td>18</td>
+          <td>29-C</td>
+        </tr>
+        <tr>
+          <td>CC-08</td>
+          <td>Vestido</td>
+          <td>H&M</td>
+          <td>M</td>
+          <td>Seda</td>
+          <td>Negro</td>
+          <td>22</td>
+          <td>29-D</td>
+        </tr>
+        <tr>
+          <td>CC-09</td>
+          <td>Pantalón</td>
+          <td>GAP</td>
+          <td>32</td>
+          <td>Algodón</td>
+          <td>Gris</td>
+          <td>12</td>
+          <td>29-E</td>
+        </tr>
+        <tr>
+          <td>CC-10</td>
+          <td>Blusa</td>
+          <td>Prada</td>
+          <td>XL</td>
+          <td>Algodón</td>
+          <td>Rojo</td>
+          <td>20</td>
+          <td>30-A</td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <div class="date-selector">
+        <button class="generate-doc-button" >Generar documento</button>
+    </div>           
+    <br>
+    <!-- FOOTER -->
+    <footer class="grid">
+        <!-- Footer - bottom -->
+        <div class="s-12 text-center margin-bottom">
+            <p class="text-size-12">Copyright 2019, Vision Design - graphic zoo</p>
+            <p class="text-size-12">All images have been purchased from Bigstock. Do not use the images in your website.</p>
+            <p><a class="text-size-12 text-primary-hover" href="http://www.myresponsee.com" title="Responsee - lightweight responsive framework">Design and coding by Responsee Team</a></p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="js/responsee.js"></script>
+    <script type="text/javascript" src="owl-carousel/owl.carousel.js"></script>
+    <script type="text/javascript" src="js/template-scripts.js"></script>
+</body>
+</html>
