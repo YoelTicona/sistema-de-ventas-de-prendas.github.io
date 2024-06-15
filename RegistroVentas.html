@@ -62,7 +62,6 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
                 <th>Marca</th>
                 <th>Tipo</th>
                 <th>Fecha de Venta</th>
@@ -74,14 +73,13 @@
         <tbody>
           <tr>
             <td><input type="number" name="ide" placeholder="12" required></td>
-            <td><input type="text" name="nombre_pro" placeholder="Chamarra" required></td>
             <td><input type="text" name="marca" placeholder="Beshka" required></td>
             <td><input type="email" name="tipo" placeholder="Abrigo" required></td>
             <td><input type="number" name="Fecha de venta" placeholder="10-12-2024"></td>
             <td><input type="text" name="Encargado" placeholder="Carlos Martinez" required></td>
             <td>
-                <button onclick="editRow(this)">Modificar cliente</button>
-                <button onclick="deleteRow(this)">Eliminar cliente</button>
+                <button onclick="editRow(this)">Modificar venta</button>
+                <button onclick="deleteRow(this)">Eliminar venta</button>
             </td>
           </tr>
       </tbody>
@@ -114,15 +112,13 @@
         const cell4 = newRow.insertCell(3);
         const cell5 = newRow.insertCell(4);
         const cell6 = newRow.insertCell(5);
-        const cell7 = newRow.insertCell(6);
         
         cell1.innerHTML = '<input type="number" name="ide_venta" placeholder="12" required>';
-        cell2.innerHTML = '<input type="text" name="nombre_pro" placeholder="Chamarra" required>';
-        cell3.innerHTML = '<input type="text" name="marca" placeholder="Beshka" required>';
-        cell4.innerHTML = '<input type="email" name="tipo" placeholder="Abrigo" required>';
-        cell5.innerHTML = '<input type="number" name="Fecha de venta" placeholder="10-12-2024">';
-        cell6.innerHTML = '<input type="text" name="Encargado" placeholder="Carlos Martinez" required>';
-        cell7.innerHTML = '<button onclick="editRow(this)">Modificar</button> <button onclick="deleteRow(this)">Eliminar</button>';
+        cell2.innerHTML = '<input type="text" name="marca" placeholder="Beshka" required>';
+        cell3.innerHTML = '<input type="email" name="tipo" placeholder="Abrigo" required>';
+        cell4.innerHTML = '<input type="number" name="Fecha de venta" placeholder="10-12-2024">';
+        cell5.innerHTML = '<input type="text" name="Encargado" placeholder="Carlos Martinez" required>';
+        cell6.innerHTML = '<button onclick="editRow(this)">Modificar</button> <button onclick="deleteRow(this)">Eliminar</button>';
     }
 
     function deleteRow(r) {
